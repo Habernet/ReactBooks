@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 // import React Router
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-//import components
-import Navbar from "./components/NavBar/navbar";
+//import pages
 import search from "./pages/search";
 import saved from "./pages/saved";
 

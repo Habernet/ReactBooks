@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+//import components with which to build this page
 
 class Search extends Component {
   render() {
