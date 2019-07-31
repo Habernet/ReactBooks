@@ -1,18 +1,15 @@
-import React, { Component } from "react";
-
+import React from "react";
 const Navbar = props => {
   return (
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">
-          Google Search
-        </a>
+        <a class="brand-logo">React/Google Books!</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li>
-            <a href="">Search</a>
+            <a>Search</a>
           </li>
           <li>
-            <a href="">Saved</a>
+            <a>Saved</a>
           </li>
         </ul>
       </div>
