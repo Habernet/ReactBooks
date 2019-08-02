@@ -22,15 +22,6 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/reactbooks";
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
-// test some data input with db
-// db.Book.create({
-//   title: "Hello World",
-//   author: "Me",
-//   description: "I just wanted this to work!",
-//   image: "hiii ",
-//   link: "Click me"
-// }).then(response => console.log(response));
-
 //Use the router
 app.use(routes);
 

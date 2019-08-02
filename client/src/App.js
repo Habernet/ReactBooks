@@ -10,18 +10,33 @@ class App extends Component {
   render() {
     return (
       <>
-        {/* <Navbar /> */}
         {/* Add your router here to dynamically render each page depending on
         which route is hit */}
         <Router>
-          <nav>
-            <div className="nav-wrapper">
-              <ul>
-                <li>
-                  <Link to="/search">Search</Link>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <a className="navbar-brand">Google / React Books!</a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon" />
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/search">
+                    Search
+                  </Link>
                 </li>
-                <li>
-                  <Link to="/saved">Saved</Link>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/saved">
+                    Saved
+                  </Link>
                 </li>
               </ul>
             </div>
