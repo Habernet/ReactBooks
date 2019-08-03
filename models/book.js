@@ -3,11 +3,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
-  title: { type: String, required: true },
-  author: { type: String, required: true },
-  description: String,
+  title: String,
+  authors: String,
+  synopsis: String,
   image: String,
   link: String,
+  id: String,
   date: { type: Date, defualt: Date.now }
 });
 

@@ -25,6 +25,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 //Use the router
 app.use(routes);
 
+console.log("HERE");
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
