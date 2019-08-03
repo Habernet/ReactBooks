@@ -18,14 +18,16 @@ class Search extends Component {
     // Initialize the parsed array
     let parsedArray = [];
 
-    let filteredArray = response.data.items.filter(item => item.searchInfo);
+    let filteredArray = response.data.items.filter(
+      item => item.volumeInfo.description
+    );
 
     // Loop through response.items and build an object to be pushed to the new array
     filteredArray.forEach(item => {
       parsedArray.push({
         title: item.volumeInfo.title.toString(),
         authors: item.volumeInfo.authors.toString(),
-        synopsis: item.searchInfo.textSnippet || "None available!",
+        synopsis: item.volumeInfo.description || "No synopsis available!",
         image: item.volumeInfo.imageLinks.thumbnail,
         link: item.volumeInfo.canonicalVolumeLink,
         id: item.id
@@ -57,9 +59,7 @@ class Search extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("1");
     if (this.state.title) {
-      console.log("");
       API.searchBook({
         title: this.state.title
       }).then(res => {
@@ -87,7 +87,7 @@ class Search extends Component {
                 <ListItem key={book.id}>
                   <h3>{book.title}</h3>
                   <h4>{book.authors}</h4>
-                  <h4>{book.synopsis}</h4>
+                  <p>{book.synopsis}</p>
                   <a>{book.link}</a>
                   {/* <img src=`"${book.image}"` alt="Book Image" /> */}
                   <br />
