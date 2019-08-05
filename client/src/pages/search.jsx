@@ -88,8 +88,10 @@ class Search extends Component {
                   <h3>{book.title}</h3>
                   <h4>{book.authors}</h4>
                   <p>{book.synopsis}</p>
-                  <a>{book.link}</a>
-                  {/* <img src=`"${book.image}"` alt="Book Image" /> */}
+                  <img src={book.image} alt={book.title} />
+                  <button href={book.link} className="btn btn-info">
+                    View Book
+                  </button>
                   <br />
                   <AddBtn onClick={() => this.handleAddClick(book)} />
                 </ListItem>

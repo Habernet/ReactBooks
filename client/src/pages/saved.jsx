@@ -3,44 +3,48 @@ import API from "../utils/API";
 //import components with which to build this page
 import Container from "../components/Container/container";
 import { List, ListItem } from "../components/List/list";
+import DeleteBtn from "../components/DeleteBtn/deletebtn";
 
 class Saved extends Component {
   state = {
     books: []
   };
 
-  componentDidMount() {
+  loadSavedBooks = () => {
     API.getBooks()
       .then(res => {
-        console.log(res);
         this.setState({ books: res.data });
       })
       .catch(err => console.log(err));
+  };
+
+  componentDidMount() {
+    this.loadSavedBooks();
   }
+
+  handleDeleteClick = bookId => {
+    API.deleteBook(bookId)
+      .then(res => {
+        this.loadSavedBooks();
+      })
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
       <Container>
-        {/* <List>
-          {this.state.books.map(book => (
-            <ListItem key={book.id}>
-              <h3>{book.title}</h3>
-              <h4>{book.authors}</h4>
-              <h4>{book.synopsis}</h4>
-              <a>{book.link}</a>
-              <br />
-            </ListItem>
-          ))}
-        </List> */}
-
         {this.state.books.length ? (
           <List>
             {this.state.books.map(book => (
               <ListItem key={book.id}>
                 <h3>{book.title}</h3>
                 <h4>{book.authors}</h4>
-                <h4>{book.synopsis}</h4>
-                <a>{book.link}</a>
+                <p>{book.synopsis}</p>
+                <img src={book.image} alt={book.title} />
+                <button href={book.link} className="btn btn-info">
+                  View Book
+                </button>
+                <DeleteBtn onClick={() => this.handleDeleteClick(book.id)} />
                 <br />
               </ListItem>
             ))}
