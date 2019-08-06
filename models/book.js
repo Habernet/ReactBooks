@@ -9,7 +9,7 @@ const bookSchema = new Schema({
   image: String,
   link: String,
   id: String,
-  date: { type: Date, defualt: Date.now }
+  date: { type: Date, default: Date.now }
 });
 
 const Book = mongoose.model("Book", bookSchema);

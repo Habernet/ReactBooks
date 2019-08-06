@@ -11,7 +11,9 @@ const BookSearch = props => {
         aria-label="Search through site content"
         {...props}
       />
-      <button onClick={props.formSubmit}>Search</button>
+      <button className="btn btn-secondary" onClick={props.formSubmit}>
+        Search
+      </button>
     </div>
   );
 };

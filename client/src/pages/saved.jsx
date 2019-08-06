@@ -41,9 +41,9 @@ class Saved extends Component {
                 <h4>{book.authors}</h4>
                 <p>{book.synopsis}</p>
                 <img src={book.image} alt={book.title} />
-                <button href={book.link} className="btn btn-info">
-                  View Book
-                </button>
+                <a href={book.link} className="badge badge-secondary">
+                  View this book!
+                </a>
                 <DeleteBtn onClick={() => this.handleDeleteClick(book.id)} />
                 <br />
               </ListItem>

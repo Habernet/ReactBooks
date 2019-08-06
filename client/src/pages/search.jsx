@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import BookSearch from "../components/BookSearch/booksearch";
 import { List, ListItem } from "../components/List/list";
 import AddBtn from "../components/AddBtn/addbtn";
+import ViewBtn from "../components/ViewBtn/viewbtn";
 import API from "../utils/API";
 
 class Search extends Component {
@@ -46,7 +47,7 @@ class Search extends Component {
       link: book.link,
       id: book.id
     })
-      .then(res => console.log(res))
+      .then(res => console.log)
       .catch(err => console.log(err));
   };
 
@@ -89,9 +90,7 @@ class Search extends Component {
                   <h4>{book.authors}</h4>
                   <p>{book.synopsis}</p>
                   <img src={book.image} alt={book.title} />
-                  <button href={book.link} className="btn btn-info">
-                    View Book
-                  </button>
+                  <ViewBtn link={book.link} />
                   <br />
                   <AddBtn onClick={() => this.handleAddClick(book)} />
                 </ListItem>
